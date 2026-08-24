@@ -120,6 +120,20 @@ function App() {
             </div>
           </Reveal>
 
+          {/* Etsy shop link */}
+          <Reveal delay={620}>
+            <div className="shop-link">
+              <p className="shop-desc">The tools I wish I had on the hardest days — planners built for families like ours.</p>
+              <a
+                href="https://steadyrootsshop.etsy.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Steady Days on Etsy →
+              </a>
+            </div>
+          </Reveal>
+
           {/* Email capture */}
           <Reveal delay={660}>
             <div className="email-section">

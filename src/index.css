@@ -362,6 +362,31 @@ body {
   transition: transform 0.6s var(--ease-out);
 }
 
+.shop-link {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.shop-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+.shop-link a {
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.25s, text-shadow 0.25s;
+}
+
+.shop-link a:hover {
+  color: var(--accent-bright);
+  text-shadow: 0 0 16px rgba(212, 148, 58, 0.35);
+}
+
 .cta-ghost {
   background: transparent;
   color: var(--text);
