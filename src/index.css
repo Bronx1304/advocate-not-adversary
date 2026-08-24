@@ -387,6 +387,48 @@ body {
   text-shadow: 0 0 16px rgba(212, 148, 58, 0.35);
 }
 
+.downloads {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.downloads-heading {
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.download-link {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  border-radius: 10px;
+  background: rgba(212, 148, 58, 0.12);
+  border: 1px solid rgba(212, 148, 58, 0.25);
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.25s, border-color 0.25s, transform 0.2s;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+}
+
+.download-link:hover {
+  background: rgba(212, 148, 58, 0.2);
+  border-color: rgba(212, 148, 58, 0.45);
+  transform: translateY(-2px);
+}
+
+.downloads-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
 .cta-ghost {
   background: transparent;
   color: var(--text);

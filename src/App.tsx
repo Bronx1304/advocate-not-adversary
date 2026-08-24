@@ -134,24 +134,43 @@ function App() {
             </div>
           </Reveal>
 
-          {/* Email capture */}
+          {/* Email capture + gated downloads */}
           <Reveal delay={660}>
             <div className="email-section">
-              <p className="email-label">Free guide — 5 things I wish someone told me</p>
               {submitted ? (
-                <p className="email-success">Check your inbox. ✓</p>
-              ) : (
-                <div className="email-form">
-                  <input
-                    ref={inputRef}
-                    type="email"
-                    placeholder="Your email"
-                    autoComplete="email"
-                    className={error ? 'input-error' : ''}
-                    onKeyDown={(e) => { if (e.key === 'Enter') handleSubmit() }}
-                  />
-                  <button type="button" onClick={handleSubmit}>Send it</button>
+                <div className="downloads">
+                  <p className="downloads-heading">Here you go — two free tools, no strings.</p>
+                  <a
+                    href="/advocate-not-adversary/downloads/Does-This-Sound-Like-Your-Kid.pdf"
+                    className="download-link"
+                    download
+                  >
+                    📋 AuDHD Signs Checklist
+                  </a>
+                  <a
+                    href="/advocate-not-adversary/downloads/Paycheck-Reality-Check.pdf"
+                    className="download-link"
+                    download
+                  >
+                    💰 Paycheck Reality Check
+                  </a>
+                  <p className="downloads-note">Print them. Use them. They're yours.</p>
                 </div>
+              ) : (
+                <>
+                  <p className="email-label">Free printables — an AuDHD checklist and a budget worksheet. Drop your email.</p>
+                  <div className="email-form">
+                    <input
+                      ref={inputRef}
+                      type="email"
+                      placeholder="Your email"
+                      autoComplete="email"
+                      className={error ? 'input-error' : ''}
+                      onKeyDown={(e) => { if (e.key === 'Enter') handleSubmit() }}
+                    />
+                    <button type="button" onClick={handleSubmit}>Send it</button>
+                  </div>
+                </>
               )}
             </div>
           </Reveal>
