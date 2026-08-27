@@ -107,6 +107,17 @@ function App() {
                 </span>
               </a>
               <a
+                href="https://www.etsy.com/listing/4563397685/iep-meeting-prep-toolkit-special"
+                className="cta cta-ghost"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="cta-content">
+                  <span className="cta-icon">📄</span>
+                  IEP Fight Kit — $17 on Etsy
+                </span>
+              </a>
+              <a
                 href="https://www.tiktok.com/@advocatenotadversary"
                 className="cta cta-ghost"
                 target="_blank"
