@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, type ReactNode } from 'react'
 import { EmberStormBackground } from './components/EmberStormBackground'
+import { ChatModal } from './components/ChatModal'
 
 function Reveal({ children, delay = 0, className = '' }: { children: ReactNode; delay?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -13,9 +14,9 @@ function Reveal({ children, delay = 0, className = '' }: { children: ReactNode; 
           observer.disconnect()
         }
       },
-      { threshold: 0.1 },
+      { threshold: 0 },
     )
-    observer.observe(el)
+    requestAnimationFrame(() => observer.observe(el))
     return () => observer.disconnect()
   }, [])
   return (
@@ -28,6 +29,7 @@ function Reveal({ children, delay = 0, className = '' }: { children: ReactNode; 
 function App() {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState(false)
+  const [chatOpen, setChatOpen] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
   async function handleSubmit() {
@@ -42,10 +44,16 @@ function App() {
       return
     }
     try {
-      await fetch('https://formspree.io/f/mjybznyv', {
+      const form = new URLSearchParams()
+      form.set('email', email)
+      form.set('sent_from_orchid', 'true')
+      form.set('double_opt', 'false')
+      form.set('auto_login_enabled', 'true')
+      await fetch('https://thequietfight.beehiiv.com/create', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: form.toString(),
+        mode: 'no-cors',
       })
       setSubmitted(true)
     } catch {
@@ -56,6 +64,7 @@ function App() {
 
   return (
     <>
+      {chatOpen && <ChatModal onClose={() => setChatOpen(false)} />}
       <EmberStormBackground />
       <div className="grain" aria-hidden="true" />
       <div className="vignette" aria-hidden="true" />
@@ -94,20 +103,19 @@ function App() {
           {/* CTAs */}
           <Reveal delay={560} className="links-full">
             <div className="links">
-              <a
-                href="https://chatgpt.com/g/g-6a8ab3434b6c8191961f1ba3d54f12d6-chris-advocate-not-adversary"
+              <button
+                type="button"
                 className="cta cta-primary"
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => setChatOpen(true)}
               >
                 <span className="cta-shimmer" aria-hidden="true" />
                 <span className="cta-content">
                   <span className="cta-icon">💬</span>
                   Talk to Chris — Free AI Autism Dad
                 </span>
-              </a>
+              </button>
               <a
-                href="https://www.tiktok.com/@advocatenotadversary"
+                href="https://www.tiktok.com/@advocatenotadvers"
                 className="cta cta-ghost"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -120,26 +128,20 @@ function App() {
             </div>
           </Reveal>
 
-          {/* Etsy shop link */}
+          {/* Newsletter — 3 free downloads */}
           <Reveal delay={620}>
-            <div className="shop-link">
-              <p className="shop-desc">The tools I wish I had on the hardest days — planners built for families like ours.</p>
-              <a
-                href="https://steadyrootsshop.etsy.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Steady Days on Etsy →
-              </a>
-            </div>
-          </Reveal>
-
-          {/* Email capture + gated downloads */}
-          <Reveal delay={660}>
             <div className="email-section">
               {submitted ? (
                 <div className="downloads">
-                  <p className="downloads-heading">Here you go — two free tools, no strings.</p>
+                  <p className="downloads-heading">You're in. Welcome to The Quiet Fight.</p>
+                  <a
+                    href="/advocate-not-adversary/downloads/5-Things-I-Wish-Someone-Told-Me.html"
+                    className="download-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    📖 5 Things I Wish Someone Told Me
+                  </a>
                   <a
                     href="/advocate-not-adversary/downloads/Does-This-Sound-Like-Your-Kid.pdf"
                     className="download-link"
@@ -152,13 +154,21 @@ function App() {
                     className="download-link"
                     download
                   >
-                    💰 Paycheck Reality Check
+                    💰 Autism-Family Paycheck Reality Check
                   </a>
-                  <p className="downloads-note">Print them. Use them. They're yours.</p>
+                  <a
+                    href="/advocate-not-adversary/downloads/iep-fight-kit-free-excerpt.html"
+                    className="download-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    📄 IEP Fight Kit — Free Excerpt
+                  </a>
+                  <p className="downloads-note">Print them. Use them. They're yours. Real talk from a dad still figuring it out — landing in your inbox soon.</p>
                 </div>
               ) : (
                 <>
-                  <p className="email-label">Free printables — an AuDHD checklist and a budget worksheet. Drop your email.</p>
+                  <p className="email-label">Join The Quiet Fight — one story, one takeaway, from a dad still learning. Plus four free resources when you sign up.</p>
                   <div className="email-form">
                     <input
                       ref={inputRef}
@@ -168,19 +178,64 @@ function App() {
                       className={error ? 'input-error' : ''}
                       onKeyDown={(e) => { if (e.key === 'Enter') handleSubmit() }}
                     />
-                    <button type="button" onClick={handleSubmit}>Send it</button>
+                    <button type="button" onClick={handleSubmit}>Join the fight</button>
                   </div>
                 </>
               )}
             </div>
           </Reveal>
 
-          <Reveal delay={760}>
+          {/* Etsy product links */}
+          <Reveal delay={700}>
+            <p className="product-intro">
+              Financial stability is part of advocacy. Autism parenting can bring expenses and income pressures families never planned for — from appointments and transportation to missed work and support services. These tools help you understand where your money is going and regain some control without shame.
+            </p>
+          </Reveal>
+
+          <Reveal delay={760} className="links-full">
+            <div className="links">
+              <a
+                href="https://www.etsy.com/shop/SteadyRootsShop?section_id=60013881"
+                className="cta cta-ghost"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="cta-content">
+                  <span className="cta-icon">🧩</span>
+                  AuDHD Planner Bundle — Steady Days
+                </span>
+              </a>
+              <a
+                href="https://www.etsy.com/shop/SteadyRootsShop?section_id=60013941"
+                className="cta cta-ghost"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="cta-content">
+                  <span className="cta-icon">💰</span>
+                  Steady Ledger — Financial Tools for Overwhelmed Families
+                </span>
+              </a>
+              <a
+                href="https://www.etsy.com/listing/4563397685/iep-meeting-prep-toolkit-special"
+                className="cta cta-ghost"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="cta-content">
+                  <span className="cta-icon">📋</span>
+                  The IEP Fight Kit — $17
+                </span>
+              </a>
+            </div>
+          </Reveal>
+
+          <Reveal delay={820}>
             <div className="divider" />
           </Reveal>
 
           {/* Pillar quotes */}
-          <Reveal delay={840}>
+          <Reveal delay={900}>
             <div className="pillars">
               <p className="golden-shine">"I am with you."</p>
               <p className="golden-shine">"Be their advocate, not their adversary."</p>
