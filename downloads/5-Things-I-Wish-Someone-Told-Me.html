@@ -1,0 +1,357 @@
+<title>5 Things I Wish Someone Told Me</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap">
+<style>
+:root {
+  --ground: #FAF7F2;
+  --text-primary: #1B2A4A;
+  --text-body: #3A3632;
+  --accent: #C4943D;
+  --accent-soft: rgba(196, 148, 61, 0.12);
+  --sage: #6B7F6B;
+  --divider: #E0D9CF;
+  --card-bg: #FFFFFF;
+  --card-border: #E8E2D9;
+  --quote-bg: #1B2A4A;
+  --quote-text: #FAF7F2;
+  --quote-accent: #C4943D;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #1A1816;
+    --text-primary: #E8E2D9;
+    --text-body: #C4BDB2;
+    --accent: #D4A94E;
+    --accent-soft: rgba(212, 169, 78, 0.10);
+    --sage: #8FA08F;
+    --divider: #2E2A26;
+    --card-bg: #232019;
+    --card-border: #3A352E;
+    --quote-bg: #0F1520;
+    --quote-text: #E8E2D9;
+    --quote-accent: #D4A94E;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #1A1816;
+  --text-primary: #E8E2D9;
+  --text-body: #C4BDB2;
+  --accent: #D4A94E;
+  --accent-soft: rgba(212, 169, 78, 0.10);
+  --sage: #8FA08F;
+  --divider: #2E2A26;
+  --card-bg: #232019;
+  --card-border: #3A352E;
+  --quote-bg: #0F1520;
+  --quote-text: #E8E2D9;
+  --quote-accent: #D4A94E;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--ground);
+  color: var(--text-body);
+  font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
+  font-size: 17px;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.cover {
+  text-align: center;
+  padding: 4rem 1rem 3.5rem;
+  border-bottom: 1px solid var(--divider);
+  margin-bottom: 3rem;
+}
+
+.cover-eyebrow {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.cover h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 5.5vw, 2.75rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  text-wrap: balance;
+  margin-bottom: 0.75rem;
+}
+
+.cover h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.cover-sub {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--sage);
+  margin-bottom: 2rem;
+}
+
+.cover-author {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.cover-author span {
+  display: block;
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: var(--sage);
+  margin-top: 0.15rem;
+}
+
+.intro {
+  margin-bottom: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--divider);
+}
+
+.intro p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-body);
+}
+
+.intro p + p {
+  margin-top: 1rem;
+}
+
+.lesson {
+  margin-bottom: 2.75rem;
+  padding-bottom: 2.75rem;
+  border-bottom: 1px solid var(--divider);
+}
+
+.lesson:last-of-type {
+  border-bottom: none;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+}
+
+.lesson-number {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.lesson h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  text-wrap: balance;
+  margin-bottom: 1.25rem;
+}
+
+.lesson p {
+  font-size: 1rem;
+  line-height: 1.78;
+}
+
+.lesson p + p {
+  margin-top: 1rem;
+}
+
+.pull-quote {
+  background: var(--quote-bg);
+  color: var(--quote-text);
+  padding: 2.5rem 2rem;
+  margin: 3rem -1rem;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.pull-quote blockquote {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.45;
+  margin-bottom: 1rem;
+}
+
+.pull-quote .attrib {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--quote-accent);
+}
+
+.closing {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--divider);
+}
+
+.closing h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.6rem;
+  font-style: italic;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.closing p {
+  font-size: 1rem;
+  line-height: 1.78;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.closing p + p {
+  margin-top: 1rem;
+}
+
+.closing .sig {
+  margin-top: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.05rem;
+}
+
+.cta-section {
+  margin-top: 3rem;
+  padding: 2rem 1.5rem;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  text-align: center;
+}
+
+.cta-section p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: var(--text-body);
+}
+
+.cta-section .cta-label {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.85rem 2.5rem;
+  background: var(--accent);
+  color: #FFFFFF;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .page { padding: 2rem 1.25rem 3rem; }
+  .cover { padding: 2.5rem 0.5rem 2.5rem; }
+  .pull-quote { margin: 2rem -0.5rem; padding: 2rem 1.25rem; }
+  .pull-quote blockquote { font-size: 1.25rem; }
+}
+</style>
+
+<div class="page">
+
+  <div class="cover">
+    <div class="cover-eyebrow">A Father's Guide</div>
+    <h1>5 Things I Wish Someone <em>Told Me</em> When My Son Was Diagnosed</h1>
+    <div class="cover-sub">From fear to understanding — what no doctor, teacher, or textbook gave me.</div>
+    <div class="cover-author">Chris<span>Father. Advocate. Still learning.</span></div>
+  </div>
+
+  <div class="intro">
+    <p>When my son Jared was diagnosed with autism, I thought the worst. I thought I had failed him — that I couldn't give him the normal life he deserved.</p>
+    <p>Nobody handed me a guide. Nobody told me what was coming, what to expect from the world, or what to expect from myself. I had to learn it all the hard way — through fear, through mistakes, through moments that broke me and moments that rebuilt me.</p>
+    <p>This is what I wish someone had told me on day one.</p>
+  </div>
+
+  <div class="lesson">
+    <div class="lesson-number">One</div>
+    <h2>What you're feeling right now doesn't make you a bad parent.</h2>
+    <p>The guilt hits immediately. You replay everything — was it something I did? Something I missed? You look at your child and the first thing you feel is fear, and then you feel guilty for feeling afraid.</p>
+    <p>I know, because that was me. I looked at my son — my exact reflection, the most beautiful thing I'd ever created — and my first thought was that I had failed him. That's not a thought that makes you a bad father. That's a thought that proves you care enough to be terrified.</p>
+    <p>Give yourself permission to feel it. Then keep reading.</p>
+  </div>
+
+  <div class="lesson">
+    <div class="lesson-number">Two</div>
+    <h2>They feel everything — more than you think.</h2>
+    <p>I believed they had no ability to think intelligently. Lack of self-control. Emotionless and unfeeling. Every single one of those assumptions was wrong.</p>
+    <p>Autistic individuals feel so much more deeply than anyone. They're strategic, methodical, extremely intelligent. I watched a man named Reginald calculate anyone's age from their birth year instantly — no calculator, no hesitation, just pure ability. We spent twenty minutes testing him and he never missed.</p>
+    <p>The world told me my son was limited. The world was lying. Your child is not less. They are different, and different is not the word people think it is.</p>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>"What I believed was a curse was the blessing all along."</blockquote>
+    <div class="attrib">— Chris</div>
+  </div>
+
+  <div class="lesson">
+    <div class="lesson-number">Three</div>
+    <h2>You might be the one who needs to change. Not them.</h2>
+    <p>Before I understood autism, I would yell and scream at my son. I inherited that from my own dysfunctional upbringing — it was the only response I knew. And it made everything worse.</p>
+    <p>The behavior I learned, I had to unlearn. Once I eased back on that involuntary response, the communication improved. Not overnight. But it improved.</p>
+    <p>If the way you've always done things isn't working with your child, the answer isn't to push harder. The answer might be that you're the one carrying something that needs to be put down.</p>
+  </div>
+
+  <div class="lesson">
+    <div class="lesson-number">Four</div>
+    <h2>They need to feel safe around you. Period.</h2>
+    <p>Special needs and autistic individuals communicate heavily through emotion. Your presence, your energy, the interactions they crave from you — all of it builds or breaks the bond.</p>
+    <p>They need to feel safe around you. Period, point blank. If they don't feel comfortable, they're not afraid to let you know it. And if they shut down, it's not defiance — it's self-preservation.</p>
+    <p>Empathy. Kindness. Making them feel included in anything they want to learn or do. Laugh with them. Have fun with them. Make sure they know you appreciate <em>them</em>. That's not a strategy. That's the whole formula.</p>
+  </div>
+
+  <div class="lesson">
+    <div class="lesson-number">Five</div>
+    <h2>You are not alone. I am with you.</h2>
+    <p>The days and nights of uneasiness. The fight you feel for your child to be accepted and embraced for who he is, not what the world wants him to be. The upcoming struggles you already see. The traumas you know they will endure. What the world will look like for them without you in it.</p>
+    <p>I feel it all.</p>
+    <p>But it doesn't have to be ugly and painful. We can empower and enlighten each other. That's why I'm here. Not as an expert. Not as someone who has it figured out. As a father who has been exactly where you are, and came out the other side knowing one thing for certain:</p>
+    <p>Be the advocate, not the adversary.</p>
+  </div>
+
+  <div class="closing">
+    <h3>"I am with you."</h3>
+    <p>This guide is just the beginning. I'm building something for our community — a place where families like ours can find real support, real talk, and real understanding.</p>
+    <div class="sig">— Chris</div>
+  </div>
+
+  <div class="cta-section">
+    <div class="cta-label">Stay Connected</div>
+    <p>New guides, videos, and resources for parents and families in the autism and special needs community. No spam. Just a father who gets it.</p>
+    <button class="cta-button">Join the Community</button>
+  </div>
+
+</div>

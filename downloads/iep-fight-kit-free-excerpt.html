@@ -1,0 +1,354 @@
+<title>IEP Fight Kit — Free Excerpt</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap">
+
+<style>
+:root {
+  --ground: #F5F0E8;
+  --ground-alt: #EDE7DB;
+  --surface: #FFFFFF;
+  --navy: #1B2838;
+  --gold: #D4943A;
+  --gold-bg: rgba(212, 148, 58, 0.08);
+  --sage: #6B8F71;
+  --sage-bg: rgba(107, 143, 113, 0.08);
+  --rose: #C4736E;
+  --rose-bg: rgba(196, 115, 110, 0.08);
+  --text: #2D3436;
+  --text-secondary: #5A6368;
+  --text-muted: #8B9296;
+  --border: rgba(27, 40, 56, 0.1);
+  --border-strong: rgba(27, 40, 56, 0.2);
+  --shadow: rgba(27, 40, 56, 0.06);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #141B22; --ground-alt: #1A2330; --surface: #1E2A36;
+    --navy: #E8DFD0; --gold: #E8B970; --gold-bg: rgba(232,185,112,0.1);
+    --sage: #8BB492; --sage-bg: rgba(139,180,146,0.1);
+    --rose: #D9918C; --rose-bg: rgba(217,145,140,0.1);
+    --text: #E2DDD5; --text-secondary: #B0A99E; --text-muted: #7A746C;
+    --border: rgba(232,223,208,0.1); --border-strong: rgba(232,223,208,0.18);
+    --shadow: rgba(0,0,0,0.2);
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #141B22; --ground-alt: #1A2330; --surface: #1E2A36;
+  --navy: #E8DFD0; --gold: #E8B970; --gold-bg: rgba(232,185,112,0.1);
+  --sage: #8BB492; --sage-bg: rgba(139,180,146,0.1);
+  --rose: #D9918C; --rose-bg: rgba(217,145,140,0.1);
+  --text: #E2DDD5; --text-secondary: #B0A99E; --text-muted: #7A746C;
+  --border: rgba(232,223,208,0.1); --border-strong: rgba(232,223,208,0.18);
+  --shadow: rgba(0,0,0,0.2);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--ground);
+  color: var(--text);
+  font-family: 'Source Sans 3', -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.kit {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+.cover {
+  text-align: center;
+  padding: 2.5rem 1rem 2rem;
+  border-bottom: 3px solid var(--gold);
+  margin-bottom: 2rem;
+}
+.cover-badge {
+  display: inline-block;
+  font-family: 'Bitter', Georgia, serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--gold-bg);
+  padding: 0.3rem 0.9rem;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+.cover h1 {
+  font-family: 'Bitter', Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.15;
+  text-wrap: balance;
+  margin-bottom: 0.4rem;
+}
+.cover-sub {
+  font-family: 'Bitter', Georgia, serif;
+  font-size: 1rem;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+.cover-free {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.section { margin-bottom: 2rem; }
+.section h2 {
+  font-family: 'Bitter', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border);
+}
+.section p {
+  margin-bottom: 0.85rem;
+  color: var(--text);
+}
+
+.script-block {
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 8px var(--shadow);
+  border: 1px solid var(--border);
+}
+.script-label {
+  font-family: 'Bitter', Georgia, serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  color: var(--text-muted);
+}
+.script-they {
+  background: var(--rose-bg);
+  border-left: 3px solid var(--rose);
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 0.6rem;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.92rem;
+}
+.script-they::before {
+  content: 'They say:';
+  display: block;
+  font-family: 'Bitter', Georgia, serif;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 0.2rem;
+}
+.script-you {
+  background: var(--sage-bg);
+  border-left: 3px solid var(--sage);
+  padding: 0.6rem 0.9rem;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.92rem;
+}
+.script-you::before {
+  content: 'You say:';
+  display: block;
+  font-family: 'Bitter', Georgia, serif;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.2rem;
+}
+
+.callout {
+  background: var(--gold-bg);
+  border-left: 4px solid var(--gold);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 6px 6px 0;
+}
+.callout p {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+.callout p:last-child { margin-bottom: 0; }
+
+.pwn-box {
+  background: var(--sage-bg);
+  border-left: 4px solid var(--sage);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 6px 6px 0;
+}
+.pwn-box p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+  color: var(--text);
+}
+
+.upsell {
+  background: var(--surface);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  margin: 2.5rem 0;
+}
+.upsell h3 {
+  font-family: 'Bitter', Georgia, serif;
+  font-size: 1.2rem;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+.upsell p {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+.upsell-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  text-align: left;
+  max-width: 400px;
+  display: inline-block;
+}
+.upsell-list li {
+  padding: 0.3rem 0;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+.upsell-list li::before {
+  content: '✓ ';
+  color: var(--sage);
+  font-weight: 700;
+}
+.upsell-link {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--gold);
+  color: #fff;
+  font-family: 'Bitter', Georgia, serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.7rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.upsell-link:hover { opacity: 0.9; }
+.upsell-price {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.footer {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--gold);
+  margin-top: 2rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.footer a { color: var(--gold); text-decoration: none; }
+.footer p { margin-bottom: 0.35rem; }
+
+.divider { height: 1px; background: var(--border-strong); margin: 2rem 0; }
+
+a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+@media print {
+  body { background: #fff; color: #1a1a1a; font-size: 10.5pt; }
+  .upsell { border-color: #D4943A; }
+}
+</style>
+
+<div class="kit">
+
+  <div class="cover">
+    <div class="cover-badge">Free Excerpt</div>
+    <h1>The IEP Fight Kit</h1>
+    <p class="cover-sub">They Say / You Say — Word-for-Word Scripts</p>
+    <p class="cover-free">3 scripts from the full kit + the one sentence that changes everything</p>
+  </div>
+
+  <div class="section">
+    <h2>What to Say When Schools Try to Shut You Down</h2>
+
+    <p>These aren't hypothetical. These are things that actually get said in IEP meetings — designed to make you back down, feel outnumbered, or accept less. None of the responses below are confrontational. Every one is a request for evidence or documentation.</p>
+
+    <div class="script-block">
+      <div class="script-label">When they cite "policy"</div>
+      <div class="script-they">"I'm sorry, we can't do that. It's against our policy."</div>
+      <div class="script-you">"Can you share a copy of that policy with me? And can we note in the IEP that I made this request and it was denied due to district policy?"</div>
+    </div>
+
+    <div class="script-block">
+      <div class="script-label">When they say it's already being done</div>
+      <div class="script-they">"We don't need to put that in the IEP. We already do that for him."</div>
+      <div class="script-you">"If it's important enough to do, it's important enough to document. What if my child changes schools? What if there's a new teacher? I'd like it in the IEP so it follows him."</div>
+    </div>
+
+    <div class="script-block">
+      <div class="script-label">When they rush you to sign</div>
+      <div class="script-they">"We just need your signature so we can start services."</div>
+      <div class="script-you">"I'd like to take it home and review it. I want to make sure I understand everything before I consent."</div>
+    </div>
+
+    <div class="callout">
+      <p><strong>These are 3 of the 9 scripts in the full IEP Fight Kit.</strong> The full version includes responses for when they want to vote on your child's IEP, when they dismiss your outside evaluation, when they say "we don't do that here," and more.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <h2>The One Sentence That Changes Everything</h2>
+
+    <p>Under federal law (IDEA §300.503), whenever a school proposes or refuses to change your child's services, placement, or evaluation, they must explain why — <strong>in writing</strong>. This is called Prior Written Notice. Schools almost never offer it voluntarily. You have to ask.</p>
+
+    <p>Here's the sentence:</p>
+
+    <div class="pwn-box">
+      <p><strong>"I'd like to receive Prior Written Notice of that decision before we wrap up today."</strong></p>
+    </div>
+
+    <p>Say it every time they deny a request. You don't need to explain why. You don't need to argue. Just ask for the paper trail. One of two things will happen: they put their reason in writing (giving you evidence if you need to escalate), or they change their mind — because a weak reason looks worse on paper.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="upsell">
+    <h3>Get the Full IEP Fight Kit</h3>
+    <p>Everything a parent needs to walk into an IEP meeting prepared — not panicked.</p>
+    <ul class="upsell-list">
+      <li>8 federal rights with legal citations</li>
+      <li>Meeting prep checklists</li>
+      <li>50+ questions organized by topic</li>
+      <li>9 word-for-word scripts (you got 3 above)</li>
+      <li>3 copy-paste email templates</li>
+      <li>Post-meeting action plan</li>
+      <li>All 50 states parent center directory</li>
+    </ul>
+    <a href="https://steadyrootsshop.etsy.com" class="upsell-link">Get the Full Kit</a>
+    <p class="upsell-price">$17 · Instant digital download</p>
+  </div>
+
+  <div class="footer">
+    <p><strong>Advocate Not Adversary</strong></p>
+    <p><a href="https://bronx1304.github.io/advocate-not-adversary/">bronx1304.github.io/advocate-not-adversary</a></p>
+    <p>Built by a dad who had to learn this the hard way.</p>
+  </div>
+
+</div>
