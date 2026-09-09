@@ -24,17 +24,17 @@ export function homePage(env: Env): string {
 
     <p style="font-size:0.78rem;color:var(--text-faint);margin:0;">The official Advocate Not Adversary site, independently owned and operated by Chris Caballero.</p>
 
-    <p style="font-size:0.78rem;color:var(--text-faint)">Resources and support on this site are free to explore.</p>
+    <p style="font-size:0.78rem;color:var(--text-faint)">The resource library is being prepared with care. Join the newsletter for release updates.</p>
 
     <div class="hero-links">
       <a href="#chat" class="hero-cta hero-cta-primary" id="open-chat">
         <span class="cta-icon">💬</span> Talk to Chris — Free AI Autism Dad
       </a>
-      <button type="button" class="hero-cta hero-cta-ghost" id="open-support" style="border:none">
-        <span class="cta-icon">✉</span> Contact Chris
-      </button>
+      <div class="hero-cta hero-cta-ghost" style="cursor:default;opacity:0.7">
+        <span class="cta-icon">✉</span> Direct contact <span class="feature-badge" style="margin-left:auto">Coming Soon</span>
+      </div>
       <a href="/store" class="hero-cta hero-cta-ghost">
-        <span class="cta-icon">📦</span> Free Resources & Store
+        <span class="cta-icon">📦</span> Resource Library
       </a>
       <a href="https://www.tiktok.com/@advocatenotadvers" target="_blank" rel="noopener noreferrer" class="hero-cta hero-cta-ghost">
         <span class="cta-icon">▶</span> Follow on TikTok
@@ -97,46 +97,6 @@ export function homePage(env: Env): string {
 
 <div id="chat-modal" style="display:none">
   <!-- Chat modal injected by client JS -->
-</div>
-
-<div id="support-modal" class="modal-overlay" style="display:none">
-  <div class="modal-card" style="max-width:480px">
-    <div class="modal-header">
-      <h2 style="font-size:1rem;margin:0;font-family:Outfit,sans-serif">Contact Chris</h2>
-      <button type="button" onclick="document.getElementById('support-modal').style.display='none'" class="modal-close" aria-label="Close">&times;</button>
-    </div>
-    <div style="padding:1.25rem">
-      <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1.25rem">This is an asynchronous ticket — not a hotline, not a professional relationship. Christopher will respond when available.</p>
-      <form id="support-form">
-        <div class="form-group">
-          <label class="form-label" for="support-name">Name (optional)</label>
-          <input type="text" id="support-name" class="form-input" placeholder="Your name" maxlength="100">
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="support-email">Email <span style="color:var(--accent)">*</span></label>
-          <input type="email" id="support-email" class="form-input" placeholder="you@example.com" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="support-category">Category <span style="color:var(--accent)">*</span></label>
-          <select id="support-category" class="form-input" required>
-            <option value="">Select a category</option>
-            <option value="general">General question</option>
-            <option value="accessibility">Accessibility</option>
-            <option value="privacy">Privacy or safety concern</option>
-            <option value="store">Store or purchases</option>
-            <option value="account">Account help</option>
-            <option value="feedback">Feedback</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="support-message">Message <span style="color:var(--accent)">*</span></label>
-          <textarea id="support-message" class="form-input" rows="5" placeholder="What can I help with?" maxlength="5000" required style="resize:vertical"></textarea>
-        </div>
-        <div id="support-status" style="display:none;margin-bottom:1rem"></div>
-        <button type="submit" class="btn btn-primary" style="width:100%" id="support-submit">Send Ticket</button>
-      </form>
-    </div>
-  </div>
 </div>
 
 <script>
@@ -202,42 +162,6 @@ async function handleChatSubmit(e) {
   }
 }
 
-document.getElementById('open-support')?.addEventListener('click', function() {
-  document.getElementById('support-modal').style.display = 'flex';
-});
-
-document.getElementById('support-form')?.addEventListener('submit', async function(e) {
-  e.preventDefault();
-  var btn = document.getElementById('support-submit');
-  var status = document.getElementById('support-status');
-  btn.disabled = true;
-  btn.textContent = 'Sending...';
-  status.style.display = 'none';
-
-  try {
-    var res = await fetch('/api/support', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: document.getElementById('support-name').value.trim(),
-        email: document.getElementById('support-email').value.trim(),
-        category: document.getElementById('support-category').value,
-        message: document.getElementById('support-message').value.trim(),
-      }),
-    });
-    if (!res.ok) throw new Error('Failed');
-    status.className = 'alert alert-info';
-    status.textContent = 'Ticket sent. Christopher will respond to your email when available.';
-    status.style.display = 'block';
-    document.getElementById('support-form').reset();
-  } catch {
-    status.className = 'alert alert-danger';
-    status.textContent = 'Something went wrong. Please try again or email owner@advocatenotadversary.net directly.';
-    status.style.display = 'block';
-  }
-  btn.disabled = false;
-  btn.textContent = 'Send Ticket';
-});
 </script>`,
     { title: 'Home', activePath: '/', noHeader: false }
   );
