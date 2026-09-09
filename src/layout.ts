@@ -25,7 +25,7 @@ function nav(activePath: string): string {
     (l) =>
       `<a href="${l.href}"${l.href === activePath ? ' class="active"' : ''}>${l.label}</a>`
   ).join('');
-  return `<nav class="site-nav" aria-label="Main navigation">${links}<button type="button" class="nav-splash-btn" onclick="document.getElementById('safety-splash').hidden=false" aria-label="Reopen motion choice screen">Safety</button><a href="/account" class="nav-login">Sign In</a></nav>`;
+  return `<nav class="site-nav" aria-label="Main navigation">${links}<button type="button" class="nav-splash-btn" onclick="document.getElementById('safety-splash').hidden=false" aria-label="Reopen motion choice screen">Safety</button></nav>`;
 }
 
 function header(activePath: string): string {
