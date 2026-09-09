@@ -25,7 +25,7 @@ function nav(activePath: string): string {
     (l) =>
       `<a href="${l.href}"${l.href === activePath ? ' class="active"' : ''}>${l.label}</a>`
   ).join('');
-  return `<nav class="site-nav" aria-label="Main navigation">${links}<a href="/account" class="nav-login">Sign In</a></nav>`;
+  return `<nav class="site-nav" aria-label="Main navigation">${links}<button type="button" class="nav-splash-btn" onclick="document.getElementById('safety-splash').hidden=false" aria-label="Reopen motion choice screen">Safety</button><a href="/account" class="nav-login">Sign In</a></nav>`;
 }
 
 function header(activePath: string): string {
@@ -66,10 +66,47 @@ export function layout(body: string, opts: LayoutOptions): string {
 <style>${CSS}</style>
 </head>
 <body${opts.bodyClass ? ` class="${opts.bodyClass}"` : ''}>
+<div id="safety-splash" class="safety-splash" role="dialog" aria-modal="true" aria-label="Motion preference">
+  <div class="splash-card">
+    <h1>Choose the motion level that feels safe</h1>
+    <p>This site can include animated background effects.</p>
+    <div class="splash-warning-box">
+      <p style="font-weight:600;margin-bottom:0.5rem">Please choose Reduced motion if you experience any of the following:</p>
+      <ul>
+        <li>Photosensitive epilepsy or seizure disorders</li>
+        <li>Vestibular or balance disorders</li>
+        <li>Migraines triggered by motion or light</li>
+        <li>Sensory processing sensitivity</li>
+        <li>Discomfort from screen animations</li>
+      </ul>
+    </div>
+    <div class="splash-options">
+      <button type="button" class="splash-btn recommended" data-motion="reduced" autofocus>Reduced motion (recommended)</button>
+      <button type="button" class="splash-btn" data-motion="slow">Slow swirls</button>
+      <button type="button" class="splash-btn" data-motion="fast">Fast swirls</button>
+    </div>
+    <p class="splash-footer-note">Your choice is saved on this device. Change it anytime from the Safety button in the navigation bar.</p>
+  </div>
+</div>
+<script>
+(function(){
+  var s=document.getElementById('safety-splash');
+  try{var m=localStorage.getItem('ana-motion');if(m){s.hidden=true;document.body.classList.add('motion-'+m);}}catch(e){}
+  s.addEventListener('click',function(e){
+    var b=e.target.closest('[data-motion]');if(!b)return;
+    var v=b.getAttribute('data-motion');
+    try{localStorage.setItem('ana-motion',v);}catch(e){}
+    document.body.className=document.body.className.replace(/motion-\\S+/g,'').trim();
+    document.body.classList.add('motion-'+v);
+    s.hidden=true;
+  });
+})();
+</script>
 <a href="#main" class="skip-link">Skip to content</a>
 ${opts.noHeader ? '' : header(active)}
 <main id="main">${body}</main>
 ${opts.noFooter ? '' : footer()}
+<script>if(!navigator.doNotTrack&&!navigator.globalPrivacyControl)fetch('/api/counter?page='+encodeURIComponent(location.pathname),{method:'POST',keepalive:true}).catch(function(){});</script>
 </body>
 </html>`;
 }

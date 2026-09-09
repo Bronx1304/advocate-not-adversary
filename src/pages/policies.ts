@@ -36,7 +36,9 @@ export function policiesPage(env: Env): string {
   <h2 class="section-title">Commerce Documents</h2>
   <div class="card-grid">
     <div class="info-card"><h3>Refund and Cancellation Policy</h3><p>Terms for digital product refunds and membership cancellations.</p></div>
+    <div class="info-card"><h3>Usage Policy</h3><p>Permitted and prohibited uses of purchased digital products.</p></div>
     <div class="info-card"><h3>Stripe and Payment Terms</h3><p>How payments are processed and what data Stripe receives.</p></div>
+    <div class="info-card"><h3>Google AdSense Terms and Disclosures</h3><p>Advertising is safety-locked off. Publisher ID exists for verification only — no ad code is loaded on this site.</p></div>
   </div>
 </div>
 

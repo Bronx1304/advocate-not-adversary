@@ -66,6 +66,34 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname.replace(/\/+$/, '') || '/';
 
+    if (path === '/ads.txt') {
+      return new Response('# Advocate Not Adversary — ads safety-locked off\n# Publisher ID reserved for verification only. No ad code is loaded.\ngoogle.com, pub-XXXXXXXXXX, DIRECT, f08c47fec0942fa0\n', {
+        headers: { 'Content-Type': 'text/plain' },
+      });
+    }
+
+    if (path.startsWith('/api/download/')) {
+      return html(layout(
+        `<div class="hero-wrap" style="min-height:60vh">
+          <h1 class="page-title">Download Coming Soon</h1>
+          <p class="page-intro">This resource is being prepared for download. Check back shortly — free guides and bundles will be available here.</p>
+          <a href="/store" class="btn btn-primary">Back to Store</a>
+        </div>`,
+        { title: 'Download', activePath: '/store' }
+      ));
+    }
+
+    if (path === '/api/counter' && request.method === 'POST') {
+      const page = url.searchParams.get('page') ?? '/';
+      const dnt = request.headers.get('DNT') === '1' || request.headers.get('Sec-GPC') === '1';
+      if (!dnt) {
+        const id = env.SITE_STATE.idFromName('global');
+        const stub = env.SITE_STATE.get(id);
+        await stub.fetch(new Request(`http://internal/counter/increment?page=${encodeURIComponent(page)}`));
+      }
+      return new Response('ok', { status: 204 });
+    }
+
     if (path === '/api/chat' && request.method === 'POST') {
       const { handleChat } = await import('./ai/chat');
       return handleChat(request, env);

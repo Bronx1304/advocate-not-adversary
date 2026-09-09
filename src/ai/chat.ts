@@ -20,10 +20,10 @@ interface ProviderConfig {
 }
 
 const PROVIDERS: ProviderConfig[] = [
-  { name: 'Groq', url: 'https://api.groq.com/openai/v1/chat/completions', model: 'gpt-oss-20b', keyEnvVar: 'GROQ_API_KEY' },
-  { name: 'Groq', url: 'https://api.groq.com/openai/v1/chat/completions', model: 'gpt-oss-120b', keyEnvVar: 'GROQ_API_KEY' },
-  { name: 'NVIDIA', url: 'https://integrate.api.nvidia.com/v1/chat/completions', model: 'nemotron-3-super-120b-a12b', keyEnvVar: 'NVIDIA_API_KEY' },
-  { name: 'NVIDIA', url: 'https://integrate.api.nvidia.com/v1/chat/completions', model: 'nemotron-3.5-lightning-30b-a3b', keyEnvVar: 'NVIDIA_API_KEY' },
+  { name: 'Groq', url: 'https://api.groq.com/openai/v1/chat/completions', model: 'openai/gpt-oss-20b', keyEnvVar: 'GROQ_API_KEY' },
+  { name: 'Groq', url: 'https://api.groq.com/openai/v1/chat/completions', model: 'openai/gpt-oss-120b', keyEnvVar: 'GROQ_API_KEY' },
+  { name: 'NVIDIA', url: 'https://integrate.api.nvidia.com/v1/chat/completions', model: 'nvidia/nemotron-3-super-120b-a12b', keyEnvVar: 'NVIDIA_API_KEY' },
+  { name: 'NVIDIA', url: 'https://integrate.api.nvidia.com/v1/chat/completions', model: 'nvidia/nemotron-3.5-lightning-30b-a3b', keyEnvVar: 'NVIDIA_API_KEY' },
 ];
 
 function sseMessage(text: string): string {
