@@ -14,8 +14,10 @@ jobs:
     name: Publish to Cloudflare
     runs-on: ubuntu-latest
     steps:
-      - name: Check out site source
+      - name: Check out rebuilt site source
         uses: actions/checkout@v4
+        with:
+          ref: master
 
       - name: Install dependencies
         run: npm ci
