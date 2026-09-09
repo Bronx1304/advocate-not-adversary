@@ -104,7 +104,7 @@ export function storePage(env: Env): string {
   <div class="store-auth-gate">
     <h2 style="font-size:1.15rem;margin-bottom:0.75rem">My Account & Membership</h2>
     <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:1.25rem">Member accounts will be available when they are ready. You do not need an account to use the public resources.</p>
-    <a href="/account" class="btn btn-primary">Sign In</a>
+    <a href="/newsletter" class="btn btn-primary">Get release updates</a>
   </div>
 </div>
 
