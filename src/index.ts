@@ -91,7 +91,7 @@ export default {
         const stub = env.SITE_STATE.get(id);
         await stub.fetch(new Request(`http://internal/counter/increment?page=${encodeURIComponent(page)}`));
       }
-      return new Response('ok', { status: 204 });
+      return new Response(null, { status: 204 });
     }
 
     if (path === '/api/chat' && request.method === 'POST') {
