@@ -43,8 +43,8 @@ export function storePage(env: Env): string {
       <h3>\u{1F4C4} ${g.name}</h3>
       <p>${g.desc}</p>
       <div style="margin-top:0.75rem;display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap">
-        <span class="feature-badge" style="color:var(--accent)">Free — No account needed</span>
-        <a href="/api/download/${g.slug}" class="btn btn-ghost" style="font-size:0.78rem;padding:0.4rem 0.9rem">Download PDF</a>
+        <span class="feature-badge" style="color:var(--accent)">In preparation</span>
+        <a href="/newsletter" class="btn btn-ghost" style="font-size:0.78rem;padding:0.4rem 0.9rem">Get release updates</a>
       </div>
     </div>`
   ).join('');
@@ -54,8 +54,8 @@ export function storePage(env: Env): string {
       <h3>\u{1F4E6} ${b.name}</h3>
       <p style="font-size:0.8rem;color:var(--text-muted)">Includes printable PDF, offline HTML edition, editable Markdown, read-me, and byte-checkable hashes.</p>
       <div style="margin-top:0.75rem;display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap">
-        <span class="feature-badge" style="color:var(--accent)">Free Download</span>
-        <a href="/api/download/${b.slug}" class="btn btn-ghost" style="font-size:0.78rem;padding:0.4rem 0.9rem">Download Bundle</a>
+        <span class="feature-badge" style="color:var(--accent)">In preparation</span>
+        <a href="/newsletter" class="btn btn-ghost" style="font-size:0.78rem;padding:0.4rem 0.9rem">Get release updates</a>
       </div>
     </div>`
   ).join('');
@@ -70,7 +70,7 @@ export function storePage(env: Env): string {
   return layout(
     `<p class="page-label">Store</p>
 <h1 class="page-title">Resource Library & Store</h1>
-<p class="page-intro">Practical tools for autism parents, caregivers, and families. Free guides require no account. All paid products are processed through Stripe.</p>
+<p class="page-intro">Practical tools for autism parents, caregivers, and families. The resource library is being prepared with care; join the newsletter for release updates.</p>
 
 <div class="store-tabs" role="tablist" aria-label="Store sections">
   <button role="tab" class="store-tab active" aria-selected="true" data-tab="guides">Free Guides</button>
@@ -95,21 +95,21 @@ export function storePage(env: Env): string {
 <div id="tab-purchases" class="store-panel" role="tabpanel" hidden>
   <div class="store-auth-gate">
     <h2 style="font-size:1.15rem;margin-bottom:0.75rem">My Purchases</h2>
-    <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:1.25rem">Sign in to view your purchased resources and download history.</p>
-    <a href="/account" class="btn btn-primary">Sign In</a>
+    <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:1.25rem">Purchase history will appear here when the store opens.</p>
+    <a href="/newsletter" class="btn btn-primary">Get release updates</a>
   </div>
 </div>
 
 <div id="tab-account" class="store-panel" role="tabpanel" hidden>
   <div class="store-auth-gate">
     <h2 style="font-size:1.15rem;margin-bottom:0.75rem">My Account & Membership</h2>
-    <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:1.25rem">Sign in to manage your account settings, membership status, and billing.</p>
+    <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:1.25rem">Member accounts will be available when they are ready. You do not need an account to use the public resources.</p>
     <a href="/account" class="btn btn-primary">Sign In</a>
   </div>
 </div>
 
 <div class="alert alert-info" style="margin-top:2rem">
-  <strong>Seller:</strong> All products on this site are created and sold by Christopher M. Caballero. Payments are processed through Stripe's hosted checkout.
+  <strong>Coming next:</strong> Paid resources will be added only after checkout and secure delivery are fully ready.
 </div>
 
 <script>

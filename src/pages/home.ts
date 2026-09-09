@@ -16,22 +16,22 @@ export function homePage(env: Env): string {
     </div>
 
     <h1 class="hero-title golden-shine">Advocate Not Adversary</h1>
-    <p class="hero-tagline" style="color:var(--text-muted)">Autism dad. Still learning.</p>
+    <p class="hero-tagline" style="color:var(--text-muted)">A father's lived experience. Real-world support for autism families.</p>
 
     <div class="hero-divider"></div>
 
     <p class="hero-bio">When my son Jared was diagnosed, I didn't understand autism. I thought I'd failed him. I hadn't — I just had a lot to unlearn. This is what I've learned so far.</p>
 
-    <p style="font-size:0.78rem;color:var(--text-faint)">
-      <a href="/account">Sign in</a> · Helpful public information does not require a subscription
-    </p>
+    <p style="font-size:0.78rem;color:var(--text-faint);margin:0;">The official Advocate Not Adversary site, independently owned and operated by Chris Caballero.</p>
+
+    <p style="font-size:0.78rem;color:var(--text-faint)">Resources and support on this site are free to explore.</p>
 
     <div class="hero-links">
       <a href="#chat" class="hero-cta hero-cta-primary" id="open-chat">
         <span class="cta-icon">💬</span> Talk to Chris — Free AI Autism Dad
       </a>
       <button type="button" class="hero-cta hero-cta-ghost" id="open-support" style="border:none">
-        <span class="cta-icon">✉</span> Talk to Chris — Owner Services
+        <span class="cta-icon">✉</span> Contact Chris
       </button>
       <a href="/store" class="hero-cta hero-cta-ghost">
         <span class="cta-icon">📦</span> Free Resources & Store
@@ -102,7 +102,7 @@ export function homePage(env: Env): string {
 <div id="support-modal" class="modal-overlay" style="display:none">
   <div class="modal-card" style="max-width:480px">
     <div class="modal-header">
-      <h2 style="font-size:1rem;margin:0;font-family:Outfit,sans-serif">Owner Services — Contact Christopher</h2>
+      <h2 style="font-size:1rem;margin:0;font-family:Outfit,sans-serif">Contact Chris</h2>
       <button type="button" onclick="document.getElementById('support-modal').style.display='none'" class="modal-close" aria-label="Close">&times;</button>
     </div>
     <div style="padding:1.25rem">

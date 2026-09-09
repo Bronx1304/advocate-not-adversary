@@ -45,6 +45,7 @@ function footer(): string {
     <a href="/ai-safety">AI Safety</a>
   </div>
   <p>&copy; ${new Date().getFullYear()} Advocate Not Adversary &mdash; Christopher M. Caballero</p>
+  <p style="margin-top:0.25rem;">Official site of Chris Caballero. Independently owned and operated.</p>
   <p style="margin-top:0.25rem;">General autism education only. Not medical, legal, or emergency advice.</p>
 </footer>`;
 }

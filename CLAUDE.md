@@ -2,9 +2,7 @@
 
 ## What this is
 
-Cloudflare Worker serving advocatenotadversary.net — server-rendered HTML, no React framework. Autism education site owned solely by Christopher M. Caballero (Chris). Built from scratch after the previous co-founder (Andrew) killed the .com domain.
-
-**Zero Andrew access. Zero Andrew code. No backdoors, no kill switch.**
+Cloudflare Worker serving advocatenotadversary.net — server-rendered HTML, no React framework. Autism education site owned solely by Christopher M. Caballero (Chris).
 
 ## Tech stack
 
@@ -71,7 +69,7 @@ Secrets are set via `wrangler secret put <NAME>`. See `wrangler.toml` comments f
 
 ## Rules
 
-- Chris is the sole owner. No co-founder references, no dual-authority, no "Andrew" anywhere.
-- Source code is the blueprint reference: `04 - Projects/Chris/Advocate-Site-Blueprint.md`
+- Chris is the sole owner. Keep all project copy centered on his work, values, and community.
+- The project blueprint and approved source materials are maintained in Chris's GitHub repositories.
 - Double-confirm before any code edit (per vault rules).
 - Never place credentials in chat or code files.
